@@ -73,7 +73,7 @@ class InputActivity : AppCompatActivity() {
         val spinner = findViewById<Spinner>(R.id.spinner)
         val states = arrayOf(
             "Odisha", "Jharkhand", "Chhattisgarh", "West Bengal", "Madhya Pradesh",
-            "Telangana", "Maharashtra", "Meghalaya", "Nagaland", "Arunachal Pradesh"
+            "Telangana", "Maharashtra", "Meghalaya", "UttarPradesh"
         )
         val adapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, states)
         spinner.adapter = adapter
