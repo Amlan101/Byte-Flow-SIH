@@ -49,24 +49,56 @@ class InputActivity : AppCompatActivity() {
             return
         }
 
-        // Calculate total carbon emissions
-        val totalCarbonEmissions = excavationInput + transportationInput + equipmentInput
+        // Calculate the new carbon emissions
+        val newCarbonEmissions = excavationInput + transportationInput + equipmentInput
 
-        // Data to be sent to Firebase
-        val data = mapOf(
-            "carbonEmissions" to totalCarbonEmissions,
-            "methaneEmissions" to methaneInput
-        )
+        // Fetch the existing data for the selected state
+        val stateRef = database.child("states").child(selectedState)
 
-        // Update Firebase with the data for the selected state
-        database.child("states").child(selectedState).updateChildren(data)
-            .addOnCompleteListener { task ->
-                if (task.isSuccessful) {
-                    Toast.makeText(this, "Data submitted successfully!", Toast.LENGTH_SHORT).show()
+        stateRef.get().addOnCompleteListener { task ->
+            if (task.isSuccessful) {
+                val snapshot = task.result
+                if (snapshot.exists()) {
+                    // If the state exists, get the current values
+                    val currentCarbonEmissions = snapshot.child("carbonEmissions").getValue(Double::class.java) ?: 0.0
+                    val currentMethaneEmissions = snapshot.child("methaneEmissions").getValue(Double::class.java) ?: 0.0
+
+                    // Add new values to the current values
+                    val totalCarbonEmissions = currentCarbonEmissions + newCarbonEmissions
+                    val totalMethaneEmissions = currentMethaneEmissions + methaneInput
+
+                    // Update the data in Firebase
+                    val data = mapOf(
+                        "carbonEmissions" to totalCarbonEmissions,
+                        "methaneEmissions" to totalMethaneEmissions
+                    )
+
+                    stateRef.updateChildren(data).addOnCompleteListener { updateTask ->
+                        if (updateTask.isSuccessful) {
+                            Toast.makeText(this, "Data added successfully!", Toast.LENGTH_SHORT).show()
+                        } else {
+                            Toast.makeText(this, "Failed to add data.", Toast.LENGTH_SHORT).show()
+                        }
+                    }
                 } else {
-                    Toast.makeText(this, "Failed to submit data.", Toast.LENGTH_SHORT).show()
+                    // If the state does not exist, create a new entry
+                    val data = mapOf(
+                        "carbonEmissions" to newCarbonEmissions,
+                        "methaneEmissions" to methaneInput
+                    )
+
+                    stateRef.setValue(data).addOnCompleteListener { newTask ->
+                        if (newTask.isSuccessful) {
+                            Toast.makeText(this, "New state data added successfully!", Toast.LENGTH_SHORT).show()
+                        } else {
+                            Toast.makeText(this, "Failed to add new state data.", Toast.LENGTH_SHORT).show()
+                        }
+                    }
                 }
+            } else {
+                Toast.makeText(this, "Error retrieving state data.", Toast.LENGTH_SHORT).show()
             }
+        }
     }
 
     private fun setupSpinner() {
