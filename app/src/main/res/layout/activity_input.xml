@@ -5,13 +5,13 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="8dp"
+    android:padding="4dp"
     tools:context=".activities.InputActivity">
 
     <ImageView
         android:id="@+id/backgroundDrawable"
         android:layout_width="match_parent"
-        android:layout_height="580dp"
+        android:layout_height="620dp"
         android:src="@drawable/custom_background"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -23,7 +23,7 @@
         android:layout_marginHorizontal="18dp"
         android:layout_marginTop="24dp"
         android:fontFamily="monospace"
-        android:text="Carbon Emissions"
+        android:text="Eco Mines"
         android:textAlignment="center"
         android:textColor="@color/white"
         android:textSize="32sp"
@@ -31,6 +31,20 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <Spinner
+        android:id="@+id/spinner"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:backgroundTint="@color/white"
+        android:popupBackground="@color/white"
+        android:spinnerMode="dialog"
+        android:layout_marginHorizontal="18dp"
+        android:background="@drawable/spinner_background"
+        android:layout_marginTop="28dp"
+        app:layout_constraintTop_toBottomOf="@id/titleTxtView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/textInputExcavation"
@@ -43,7 +57,7 @@
         app:helperTextEnabled="true"
         app:helperTextTextColor="@color/white"
         app:hintTextColor="@color/white"
-        app:layout_constraintTop_toBottomOf="@id/titleTxtView"
+        app:layout_constraintTop_toBottomOf="@id/spinner"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintWidth_default="spread">
@@ -96,6 +110,7 @@
         app:helperText="Enter in metric tonnes"
         app:helperTextEnabled="true"
         app:helperTextTextColor="@color/white"
+        app:hintTextColor="@color/white"
         app:layout_constraintTop_toBottomOf="@id/textInputTransportation"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -113,22 +128,23 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/textInputFourth"
+        android:id="@+id/textInputMethane"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="36dp"
         android:layout_marginHorizontal="18dp"
-        android:hint="Fourth Feature"
+        android:hint="Methane Emissions"
         app:helperText="Enter in metric tonnes"
         app:helperTextEnabled="true"
         app:helperTextTextColor="@color/white"
+        app:hintTextColor="@color/white"
         app:layout_constraintTop_toBottomOf="@id/textInputEquipment"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintWidth_default="spread">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/inputFourth"
+            android:id="@+id/inputMethane"
             android:fontFamily="monospace"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -148,8 +164,9 @@
         android:fontFamily="monospace"
         android:textColor="@android:color/white"
         android:background="@drawable/button_background"
-        android:layout_marginTop="64dp"
-        app:layout_constraintTop_toBottomOf="@id/textInputFourth"
+        android:layout_marginTop="32dp"
+        android:layout_marginBottom="16dp"
+        app:layout_constraintTop_toBottomOf="@id/textInputMethane"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintWidth_default="spread" />
