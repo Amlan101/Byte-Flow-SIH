@@ -1,6 +1,7 @@
 package com.example.byteflowsih.activities
 
 import android.os.Bundle
+import android.util.Log
 import android.widget.ArrayAdapter
 import android.widget.Button
 import android.widget.EditText
@@ -54,6 +55,7 @@ class InputActivity : AppCompatActivity() {
 
         // Fetch the existing data for the selected state
         val stateRef = database.child("states").child(selectedState)
+        Log.d("Firebase", "Selected State: $selectedState")
 
         stateRef.get().addOnCompleteListener { task ->
             if (task.isSuccessful) {
@@ -62,6 +64,8 @@ class InputActivity : AppCompatActivity() {
                     // If the state exists, get the current values
                     val currentCarbonEmissions = snapshot.child("carbonEmissions").getValue(Double::class.java) ?: 0.0
                     val currentMethaneEmissions = snapshot.child("methaneEmissions").getValue(Double::class.java) ?: 0.0
+                    Log.d("Firebase", "Current Carbon Emissions: $currentCarbonEmissions")
+                    Log.d("Firebase", "Current Methane Emissions: $currentMethaneEmissions")
 
                     // Add new values to the current values
                     val totalCarbonEmissions = currentCarbonEmissions + newCarbonEmissions

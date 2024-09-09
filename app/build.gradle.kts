@@ -55,5 +55,9 @@ dependencies {
     // When using the BoM, don't specify versions in Firebase dependencies
     implementation("com.google.firebase:firebase-analytics")
 
+    // Firebase Auth dependency
+    implementation (platform("com.google.firebase:firebase-bom:32.3.0"))
+    implementation ("com.google.firebase:firebase-auth-ktx")
+
 
 }
