@@ -1,175 +1,243 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="4dp"
+    android:fillViewport="true"
     tools:context=".activities.InputActivity">
 
-    <ImageView
-        android:id="@+id/backgroundDrawable"
-        android:layout_width="match_parent"
-        android:layout_height="620dp"
-        android:src="@drawable/custom_background"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-    <TextView
-        android:id="@+id/titleTxtView"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/main"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="18dp"
-        android:layout_marginTop="24dp"
-        android:fontFamily="monospace"
-        android:text="Eco Mines"
-        android:textAlignment="center"
-        android:textColor="@color/white"
-        android:textSize="32sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:padding="4dp">
 
-    <Spinner
-        android:id="@+id/spinner"
-        android:layout_width="match_parent"
-        android:layout_height="30dp"
-        android:backgroundTint="@color/white"
-        android:popupBackground="@color/white"
-        android:spinnerMode="dialog"
-        android:layout_marginHorizontal="18dp"
-        android:background="@drawable/spinner_background"
-        android:layout_marginTop="28dp"
-        app:layout_constraintTop_toBottomOf="@id/titleTxtView"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/textInputExcavation"
-        android:layout_marginTop="36dp"
-        android:layout_marginHorizontal="18dp"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:hint="Excavations"
-        app:helperText="Enter in metric tonnes"
-        app:helperTextEnabled="true"
-        app:helperTextTextColor="@color/white"
-        app:hintTextColor="@color/white"
-        app:layout_constraintTop_toBottomOf="@id/spinner"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintWidth_default="spread">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/inputExcavation"
+        <ImageView
+            android:id="@+id/backgroundDrawable"
             android:layout_width="match_parent"
+            android:layout_height="860dp"
+            android:src="@drawable/custom_background"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/titleTxtView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="18dp"
+            android:layout_marginTop="24dp"
+            android:fontFamily="monospace"
+            android:text="Eco Mines"
+            android:textAlignment="center"
             android:textColor="@color/white"
-            android:fontFamily="monospace"
-            android:textAlignment="viewStart"
-            android:layout_height="wrap_content"
-            android:inputType="numberDecimal" />
+            android:textSize="32sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/textInputTransportation"
-        android:layout_marginTop="36dp"
-        android:layout_marginHorizontal="18dp"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:hint="Transportation"
-        app:helperText="Enter in metric tonnes"
-        app:helperTextEnabled="true"
-        app:helperTextTextColor="@color/white"
-        app:hintTextColor="@color/white"
-        app:layout_constraintTop_toBottomOf="@id/textInputExcavation"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintWidth_default="spread">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/inputTransportation"
+        <Spinner
+            android:id="@+id/spinner"
             android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_marginHorizontal="18dp"
+            android:layout_marginTop="28dp"
+            android:background="@drawable/spinner_background"
+            android:backgroundTint="@color/white"
+            android:popupBackground="@color/white"
+            android:spinnerMode="dialog"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/titleTxtView" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/textInputEquipmentEmissions"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:textColor="@color/white"
-            android:textAlignment="viewStart"
-            android:fontFamily="monospace"
-            android:inputType="numberDecimal" />
+            android:layout_marginHorizontal="18dp"
+            android:layout_marginTop="36dp"
+            android:hint="Equipment Emissions"
+            app:helperText="Enter in metric tonnes"
+            app:helperTextEnabled="true"
+            app:helperTextTextColor="@color/white"
+            app:hintTextColor="@color/white"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/spinner"
+            app:layout_constraintWidth_default="spread">
 
-    </com.google.android.material.textfield.TextInputLayout>
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/inputEquipmentEmissions"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="monospace"
+                android:inputType="numberDecimal"
+                android:background="@android:color/transparent"
+                android:textAlignment="viewStart"
+                android:textColor="@color/white" />
+        </com.google.android.material.textfield.TextInputLayout>
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/textInputEquipment"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="36dp"
-        android:layout_marginHorizontal="18dp"
-        android:hint="Equipment Usage"
-        app:helperText="Enter in metric tonnes"
-        app:helperTextEnabled="true"
-        app:helperTextTextColor="@color/white"
-        app:hintTextColor="@color/white"
-        app:layout_constraintTop_toBottomOf="@id/textInputTransportation"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintWidth_default="spread">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/inputEquipment"
-            android:fontFamily="monospace"
-            android:layout_width="match_parent"
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/textInputElectricalEmissions"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:textAlignment="viewStart"
-            android:inputType="numberDecimal"
-            android:textColor="@color/white"/>
+            android:layout_marginHorizontal="18dp"
+            android:layout_marginTop="36dp"
+            android:hint="Electrical Emissions"
+            app:helperText="Enter in metric tonnes"
+            app:helperTextEnabled="true"
+            app:helperTextTextColor="@color/white"
+            app:hintTextColor="@color/white"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/textInputEquipmentEmissions"
+            app:layout_constraintWidth_default="spread">
 
-    </com.google.android.material.textfield.TextInputLayout>
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/inputElectricalEmissions"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="monospace"
+                android:background="@android:color/transparent"
+                android:inputType="numberDecimal"
+                android:textAlignment="viewStart"
+                android:textColor="@color/white" />
+        </com.google.android.material.textfield.TextInputLayout>
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/textInputMethane"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="36dp"
-        android:layout_marginHorizontal="18dp"
-        android:hint="Methane Emissions"
-        app:helperText="Enter in metric tonnes"
-        app:helperTextEnabled="true"
-        app:helperTextTextColor="@color/white"
-        app:hintTextColor="@color/white"
-        app:layout_constraintTop_toBottomOf="@id/textInputEquipment"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintWidth_default="spread">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/inputMethane"
-            android:fontFamily="monospace"
-            android:layout_width="match_parent"
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/textInputMethane"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:textAlignment="viewStart"
-            android:inputType="numberDecimal"
-            android:textColor="@color/white"/>
+            android:layout_marginHorizontal="18dp"
+            android:layout_marginTop="36dp"
+            android:hint="Methane Emissions"
+            app:helperText="Enter in metric tonnes"
+            app:helperTextEnabled="true"
+            app:helperTextTextColor="@color/white"
+            app:hintTextColor="@color/white"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/textInputElectricalEmissions"
+            app:layout_constraintWidth_default="spread">
 
-    </com.google.android.material.textfield.TextInputLayout>
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/inputMethane"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="monospace"
+                android:background="@android:color/transparent"
+                android:inputType="numberDecimal"
+                android:textAlignment="viewStart"
+                android:textColor="@color/white" />
+        </com.google.android.material.textfield.TextInputLayout>
 
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/textInputScope3"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="18dp"
+            android:layout_marginTop="36dp"
+            android:hint="Scope 3 Emissions"
+            app:helperText="Enter in metric tonnes"
+            app:helperTextEnabled="true"
+            app:helperTextTextColor="@color/white"
+            app:hintTextColor="@color/white"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/textInputMethane"
+            app:layout_constraintWidth_default="spread">
 
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/submitButton"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:text="Submit"
-        android:textStyle="bold"
-        android:fontFamily="monospace"
-        android:textColor="@android:color/white"
-        android:background="@drawable/button_background"
-        android:layout_marginTop="32dp"
-        android:layout_marginBottom="16dp"
-        app:layout_constraintTop_toBottomOf="@id/textInputMethane"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintWidth_default="spread" />
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/inputScope3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="monospace"
+                android:background="@android:color/transparent"
+                android:inputType="numberDecimal"
+                android:textAlignment="viewStart"
+                android:textColor="@color/white" />
+        </com.google.android.material.textfield.TextInputLayout>
 
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/textInputEnergyConsumption"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="18dp"
+            android:layout_marginTop="36dp"
+            android:hint="Energy Consumption"
+            app:helperText="Enter in metric tonnes"
+            app:helperTextEnabled="true"
+            app:helperTextTextColor="@color/white"
+            app:hintTextColor="@color/white"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/textInputScope3"
+            app:layout_constraintWidth_default="spread">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/inputEnergyConsumption"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="monospace"
+                android:inputType="numberDecimal"
+                android:background="@android:color/transparent"
+                android:textAlignment="viewStart"
+                android:textColor="@color/white" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Fuel Consumption -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/textInputFuelConsumption"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="18dp"
+            android:layout_marginTop="36dp"
+            android:hint="Fuel Consumption"
+            app:helperText="Enter in metric tonnes"
+            app:helperTextEnabled="true"
+            app:helperTextTextColor="@color/white"
+            app:hintTextColor="@color/white"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/textInputEnergyConsumption"
+            app:layout_constraintWidth_default="spread">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/inputFuelConsumption"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="monospace"
+                android:inputType="numberDecimal"
+                android:textAlignment="viewStart"
+                android:background="@android:color/transparent"
+                android:textColor="@color/white" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Submit Button -->
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/submitButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:layout_marginBottom="16dp"
+            android:layout_marginHorizontal="18dp"
+            android:fontFamily="monospace"
+            android:text="Submit"
+            android:textSize="18sp"
+            android:letterSpacing="0.1"
+            android:textAllCaps="true"
+            android:foreground="?attr/selectableItemBackground"
+            android:background="@drawable/button_background"
+            android:textColor="@android:color/white"
+            android:textStyle="bold"
+            android:elevation="4dp"
+            android:padding="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/textInputFuelConsumption"
+            app:layout_constraintWidth_default="spread" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
